@@ -65,7 +65,7 @@ const Eventpage = () => {
   console.log(userToken, "startTime");
   const userEvents = () => {
     axios
-      .get(`http://localhost:3001/api/events/all`, {
+      .get(`https://speaker-server-4zojz.ondigitalocean.app/api/events/all`, {
         headers: {
           Authorization: `Bearer ${userToken?.token}`,
         },
@@ -82,7 +82,7 @@ const Eventpage = () => {
   console.log(resultProductData);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/events`, {
+      .get(`https://speaker-server-4zojz.ondigitalocean.app/api/events`, {
         headers: {
           Authorization: `Bearer ${userToken?.token}`,
         },
@@ -104,7 +104,7 @@ const Eventpage = () => {
     const data = {};
     console.log(id);
     axios
-      .post(`http://localhost:3001/api/events/bookmark/${id}`, data, {
+      .post(`https://speaker-server-4zojz.ondigitalocean.app/api/events/bookmark/${id}`, data, {
         headers: {
           Authorization: `Bearer ${userToken?.token}`,
         },
