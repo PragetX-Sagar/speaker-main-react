@@ -34,7 +34,7 @@ const SignInUp = () => {
     e.preventDefault();
     if (provide) {
       axios
-        .post(`http://localhost:3001/api/auth/login`, {
+        .post(`https://speaker-server-4zojz.ondigitalocean.app/api/auth/login`, {
           name: name,
           phone: phone,
           email: email,
