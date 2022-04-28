@@ -2,7 +2,7 @@
   padding: 2rem;
 }
 .heading1 {
-    margin-top: 1rem;
+  margin-top: 1rem;
   text-align: center;
   font-family: Roboto;
   font-style: normal;
@@ -14,16 +14,16 @@
   color: #000000;
 }
 
-.cards-section{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap:5rem;
+.cards-section {
+  display: grid;
+  grid-template-columns: repeat(3, 32%);
+  gap: 2%;
 }
-.cards-section .card:nth-child(2){
-    margin-top: 10rem;
-}
-.card .fp-cardtext{
-    padding:0 5rem;
+/* .cards-section .card:nth-child(2) {
+  margin-top: 10rem;
+} */
+.card .fp-cardtext {
+  padding: 0 5rem;
 }
 .num {
   font-family: Roboto;
@@ -34,7 +34,7 @@
 
   color: #ffbf19;
 }
-.desc{
+.desc {
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
@@ -43,8 +43,8 @@
 
   color: #9a9696;
 }
-.image{
-    width: 40rem;
+.image {
+  width: 100%;
   background: #f4f4f4;
   border-radius: 10px;
 }

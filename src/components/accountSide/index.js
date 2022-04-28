@@ -111,7 +111,7 @@ export default function Index() {
             <div className="cdr-box"></div>
             <span onClick={() => setTabs(1)}>ACCOUNT</span>
           </div>
-         
+
           {userdata?.role === "MODERATOR" && (
             <div className={tabs === 4 ? "cdrow active-tab" : "cdrow"}>
               <div className="cdr-box"></div>
@@ -179,13 +179,32 @@ export default function Index() {
                   value={userdata?.email || email}
                   onChange={(e) => setemail(e.target.value)}
                 />
+                <p>Age</p>
+                <input
+                  type="text"
+                  className="mpes-input"
+                  placeholder="Write Here"
+                />
+                {/* <p>Phone Number</p>
+                <input
+                  type="text"
+                  className="mpes-input"
+                  placeholder="Write Here"
+                  value={userdata?.phone}
+                /> */}
+                <p>Occupation</p>
+                <input
+                  type="text"
+                  className="mpes-input"
+                  placeholder="Write Here"
+                />
                 <button className="con-lower-btn eprbtn1" onClick={handleEdit}>
                   Update User
                 </button>
               </div>
               <div className="mpes-profilepic">
-                {console.log(localStorage.getItem("@image"),"kgdfg")}
-                {images&&<img src={localStorage.getItem("@image")} alt="" />}
+                {console.log(localStorage.getItem("@image"), "kgdfg")}
+                {images && <img src={localStorage.getItem("@image")} alt="" />}
                 <div className={images ? " images-new " : "mpesdp-change"}>
                   <input
                     type="file"
@@ -215,7 +234,7 @@ export default function Index() {
                   placeholder="Write Here"
                   value={userdata?.name}
                 />
-                <p>Age</p>
+                {/* <p>Age</p>
                 <input
                   type="text"
                   className="mpes-input"
@@ -233,7 +252,7 @@ export default function Index() {
                   type="text"
                   className="mpes-input"
                   placeholder="Write Here"
-                />
+                /> */}
               </div>
               <div className="mpes-profilepic">
                 {/* <img src={user} alt="" /> */}
@@ -306,7 +325,7 @@ export default function Index() {
               <p>BILLING INFORMATION</p>
               <button>Edit</button>
             </div>
-            <div className="mpedit-section">
+            {/* <div className="mpedit-section">
               <div className="mpes-form">
                 <h1>Bank Account</h1>
                 <p>IFSC Code</p>
@@ -330,7 +349,7 @@ export default function Index() {
                   value={userdata?.phone}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         )}
         {tabs === 4 && (
@@ -464,10 +483,14 @@ export default function Index() {
           <div className="mpl-right">
             <div className="md-header mpl-heading">
               <p>ARCHIEVE PLANS</p>
-              <button style={{
-    height: "35.06px",
-    boxSizing: "border-box",
-   }}>Total Request Pending: 30</button>
+              <button
+                style={{
+                  height: "35.06px",
+                  boxSizing: "border-box",
+                }}
+              >
+                Total Request Pending: 30
+              </button>
             </div>
             <div
               className="st-lower"
@@ -1319,7 +1342,7 @@ export default function Index() {
                     margin: "1rem",
                     border: "1px solid #ffbf19",
                     background: "none",
-                    width: "223px"
+                    width: "223px",
                   }}
                 >
                   Cancel Subscription
@@ -1329,7 +1352,7 @@ export default function Index() {
                     className="con-lower-btn eprbtn1"
                     style={{
                       margin: "1rem",
-                      width: "223px"
+                      width: "223px",
                     }}
                   >
                     Update Subscription
