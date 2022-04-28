@@ -5,8 +5,7 @@
   margin: 2rem 3.5rem;
   background-color: rgba(244, 244, 244, 1);
   border-radius: 1rem;
-  padding:3rem  1rem;
-
+  padding: 3rem 1rem;
 }
 .mp-left .mp-upper {
   display: grid;
@@ -35,6 +34,11 @@
   grid-template-columns: 1fr 10fr;
   column-gap: 10px;
 }
+.cdrow :hover {
+  background: #eaf0f6;
+  background-clip: content-box,;
+  box-shadow: inset 1rem 0.8rem #ff7a59;
+}
 .mpl-heading {
   display: flex;
   flex-direction: row;
@@ -42,7 +46,7 @@
 }
 .mpl-heading p {
   margin-right: 20px;
- border-bottom: 2px solid #ffbf19;
+  border-bottom: 2px solid #ffbf19;
   padding-bottom: 0.5rem;
   margin-right: 20px;
   border-bottom: 2px solid #ffbf19;
@@ -89,7 +93,7 @@
   width: 191px;
   border-radius: 50%;
 }
-.images-new{
+.images-new {
   width: 15rem;
   height: 15rem;
   position: absolute;
@@ -97,7 +101,6 @@
   display: flex;
   border-radius: 50%;
   justify-content: center;
- 
 }
 .mpesdp-change {
   width: 15rem;
@@ -107,11 +110,15 @@
   display: flex;
   border-radius: 50%;
   justify-content: center;
-  background: linear-gradient( 360deg, rgba(219, 219, 219, 0.89) 27.57%, rgba(219, 219, 219, 0) 50% );
+  background: linear-gradient(
+    360deg,
+    rgba(219, 219, 219, 0.89) 27.57%,
+    rgba(219, 219, 219, 0) 50%
+  );
   margin-left: -41px;
 }
 .mp-lower {
-  padding:0 1rem;
+  padding: 0 1rem;
 }
 .mp-lower .mpl-right .mpedit-section .mpes-form .mpes-input {
   width: 80%;
@@ -146,32 +153,31 @@
   width: 80%;
   color: rgb(140, 140, 140);
 }
-.confirmation{
+.confirmation {
   padding: 2rem 3rem;
 }
-.confirmation .con-upper{
+.confirmation .con-upper {
   display: flex;
 }
-.confirmation .con-upper .conu-text{
-   margin-left: 1rem;
+.confirmation .con-upper .conu-text {
+  margin-left: 1rem;
 }
-.confirmation .con-upper .conu-text span{
+.confirmation .con-upper .conu-text span {
   font-size: smaller;
   font-weight: 100;
 }
-.con-lower{
+.con-lower {
   text-align: center;
-
 }
-.con-lower-btn{
+.con-lower-btn {
   outline: none;
   border: none;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
-.active-tab{
+.active-tab {
   background: rgb(255, 191, 25);
 }
 .active-tab .cdr-box {
-  background: rgb(88, 88, 88); 
+  background: rgb(88, 88, 88);
 }

@@ -142,7 +142,7 @@ function LoggedInSidebar({ setisExclusive }) {
         )}
       </div>
 
-      <div className="eprcard">
+      {/* <div className="eprcard">
         <p>
           <b style={{ fontWeight: "500", fontSize: 24 }}>Resources</b>
         </p>
@@ -151,7 +151,7 @@ function LoggedInSidebar({ setisExclusive }) {
         </ul>    
         <Button variant="contained" style={{background: '#FFBF19',marginTop: "10px", width: '100%' }} href="#" >Contact Us</Button>
         
-      </div>
+      </div> */}
     </div>
   );
 }
