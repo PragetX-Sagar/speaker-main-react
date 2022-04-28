@@ -104,11 +104,15 @@ const Eventpage = () => {
     const data = {};
     console.log(id);
     axios
-      .post(`https://speaker-server-4zojz.ondigitalocean.app/api/events/bookmark/${id}`, data, {
-        headers: {
-          Authorization: `Bearer ${userToken?.token}`,
-        },
-      })
+      .post(
+        `https://speaker-server-4zojz.ondigitalocean.app/api/events/bookmark/${id}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken?.token}`,
+          },
+        }
+      )
       .then((d) => {
         toast.dark("Event bookmarked successfully");
       })
@@ -128,53 +132,52 @@ const Eventpage = () => {
     return creature.mode === mode;
   });
 
-
   // Modal Style
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 600,
-    bgcolor: 'background.paper',
-    border: '1px solid #000',
+    bgcolor: "background.paper",
+    border: "1px solid #000",
     boxShadow: 24,
     pt: 5,
     px: 4,
     pb: 3,
-    display:'flex',
-    flexFlow: 'wrap column',
-    alignItems: 'center', 
-};
+    display: "flex",
+    flexFlow: "wrap column",
+    alignItems: "center",
+  };
 
-const modalCloseStyle = {
-    position:'absolute',
-    top:0,
-    left:0,
-}
+  const modalCloseStyle = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+  };
 
-const cardBoxStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    position: 'relative'
-}
+  const cardBoxStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    position: "relative",
+  };
 
-  const [ open, setOpen ] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
-    const handleOpen = () => {
-        setOpen( true );
-      };
-    const handleClose = () => {
-        setOpen ( false );
-    }
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
       <ToastContainer />
       <div className="mp-parent" style={{ background: "none", marginTop: "0" }}>
-        {console.log(userdata?.role,userdata?.subscribed) }
+        {console.log(userdata?.role, userdata?.subscribed)}
         {userdata?.subscribed && userdata?.role !== "MODERATOR" ? (
           <div className="mp-left">
             <div className="search-ticket">
@@ -287,7 +290,7 @@ const cardBoxStyle = {
             </div>
 
             <div className="view-event">
-              <div className="vc-sec">             
+              <div className="vc-sec">
                 {eventData &&
                   eventData?.map((data) => {
                     return (
@@ -368,53 +371,61 @@ const cardBoxStyle = {
           </div>
         ) : (
           <>
-          <div className="speaker">
-            <img
-              src={require("../images/EventsPage2.png")}
-              style={{ height: "100%" }}
-              alt={""}
-            />
-            <div
-              className="fp-text"
-              style={{
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "rgba(52, 52, 52, 0.65)",
-                padding: "30% 0",
-                textAlign: "center",
-              }}
-            >
-              <Typography variant="h1" component="h1" style={{ 
-                textTransform: 'uppercase',
-                fontWeight: '100',
-                fontFamily: '"Segoe UI", "Roboto", "Oxygen"',
-                fontStyle: 'normal',
-                fontWeight: '100',
-                fontSize: '96px',
-                lineHeight: '112px',
-                color: '#FFFFFF',
-                }}>
-                View Events
-              </Typography>
-              <Typography style={{color: '#ffffff' }}>
-                As a subscriber to SpeakerOre you can <br/> view unlimited details of the events.
-              </Typography>
-              <Button onClick={handleOpen} variant="contained" style={{
-                            backgroundColor: '#ffbf19',
-                            borderColor: '#ffbf19',
-                            color: '#333',
-                            width: '30%',
-                            fontWeight: '600',
-                            marginTop: 10
-                        }}>Subscribe Now</Button>
+            <div className="speaker">
+              <img
+                src={require("../images/EventsPage2.png")}
+                style={{ height: "100%" }}
+                alt={""}
+              />
+              <div
+                className="fp-text"
+                style={{
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: "rgba(52, 52, 52, 0.65)",
+                  padding: "30% 0",
+                  textAlign: "center",
+                }}
+              >
+                <Typography
+                  variant="h1"
+                  component="h1"
+                  style={{
+                    textTransform: "uppercase",
+                    fontWeight: "100",
+                    fontFamily: '"Segoe UI", "Roboto", "Oxygen"',
+                    fontStyle: "normal",
+                    fontWeight: "100",
+                    fontSize: "96px",
+                    lineHeight: "112px",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  View Events
+                </Typography>
+                <Typography style={{ color: "#ffffff" }}>
+                  As a subscriber to SpeakerOre you can <br /> view unlimited
+                  details of the events.
+                </Typography>
+                <Button
+                  onClick={handleOpen}
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#ffbf19",
+                    borderColor: "#ffbf19",
+                    color: "#333",
+                    width: "30%",
+                    fontWeight: "600",
+                    marginTop: 10,
+                  }}
+                >
+                  Subscribe Now
+                </Button>
+              </div>
             </div>
-          </div>
-          
-          
-        </>
-                        
+          </>
         )}
         <LoggedInSidebar
           setisExclusive={setisExclusive}
@@ -422,64 +433,91 @@ const cardBoxStyle = {
         />
       </div>
       <Modal
-        open={ open }
-        onClose={ handleClose }
+        open={open}
+        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        >
-            <Box sx={ style }>
-                <Button onClick={ handleClose } sx={ modalCloseStyle }> &#10096; Back</Button>
-                <Typography id="modal-modal-title" component="h5" variant="h5">
-                    Oops, it seems you have not yet subscribed!
-                </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    SUBSCRIBE NOW by SIGNING IN!!
-                </Typography>
-                <div className="card-new" style={{
-                    display:'flex',
-                    flexFlow:'wrap',
-                    flex: '0 0 100%',
-                    width: '100%',
-                    marginBottom: '30px',
-                    marginTop: '30px',
-                    justifyContent: 'space-between',
-                }}>
-                    <div className="div-1" style = { cardBoxStyle }><span className='box-count'>1</span>Get event details for FREE.</div>
-                    <div className="div-2" style = { cardBoxStyle }><span className='box-count'>2</span>Unlimited Click on Events</div>
-                    <div className="div-3" style = {cardBoxStyle }><span className='box-count'>3</span>Get hired through SpeakerOre Exclusive 
-                    <span style={{
-                        position:'absolute',
-                        top: -4,
-                        right: 4,
-                        color: '#FFBF19',
-                        fontSize: 18
-                    }}> &#9733; </span></div>
-                </div>
+      >
+        <Box sx={style}>
+          <Button onClick={handleClose} sx={modalCloseStyle}>
+            {" "}
+            &#10096; Back
+          </Button>
+          <Typography id="modal-modal-title" component="h5" variant="h5">
+            Oops, it seems you have not yet subscribed!
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            SUBSCRIBE NOW by SIGNING IN!!
+          </Typography>
+          <div
+            className="card-new"
+            style={{
+              display: "flex",
+              flexFlow: "wrap",
+              flex: "0 0 100%",
+              width: "100%",
+              marginBottom: "30px",
+              marginTop: "30px",
+              justifyContent: "space-between",
+            }}
+          >
+            <div className="div-1" style={cardBoxStyle}>
+              <span className="box-count">1</span>Get event details for FREE.
+            </div>
+            <div className="div-2" style={cardBoxStyle}>
+              <span className="box-count">2</span>Unlimited Click on Events
+            </div>
+            <div className="div-3" style={cardBoxStyle}>
+              <span className="box-count">3</span>Get hired through SpeakerOre
+              Exclusive
+              <span
+                style={{
+                  position: "absolute",
+                  top: -4,
+                  right: 4,
+                  color: "#FFBF19",
+                  fontSize: 18,
+                }}
+              >
+                {" "}
+                &#9733;{" "}
+              </span>
+            </div>
+          </div>
 
-                <Box sx={{
-                    display:'flex',
-                    flexFlow:'wrap',
-                    flex: '0 0 100%',
-                    width: '100%',
-                    justifyContent: 'center',
-                }}>
-                    <Box sx={{
-                        width: '50%',
-                        flex: '0 0 50%',
-                        pl:1,
-                        pr:1
-                    }}>
-                        <Button href="/subplan" variant="contained" style={{
-                            backgroundColor: '#ffbf19',
-                            borderColor: '#ffbf19',
-                            color: '#333',
-                            width: '100%'
-                        }}>Purchase Plan</Button>
-                    </Box>
-                    
-                </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexFlow: "wrap",
+              flex: "0 0 100%",
+              width: "100%",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                width: "50%",
+                flex: "0 0 50%",
+                pl: 1,
+                pr: 1,
+              }}
+            >
+              <Button
+                href="/subplan"
+                variant="contained"
+                style={{
+                  backgroundColor: "#ffbf19",
+                  borderColor: "#ffbf19",
+                  color: "#333",
+                  width: "100%",
+                }}
+              >
+                Purchase Plan
+              </Button>
             </Box>
-        </Modal>
+          </Box>
+        </Box>
+      </Modal>
     </>
   );
 };

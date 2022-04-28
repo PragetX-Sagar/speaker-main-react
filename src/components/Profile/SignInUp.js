@@ -3,9 +3,9 @@ import "../css/SignInUp.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LoggedInSidebar from "../accountSide/LoggedInSidebar";
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from "react-google-login";
 
-import { Config } from '../Config';
+import { Config } from "../Config";
 
 const SignInUp = () => {
   const [email, setEmail] = useState("");
@@ -15,16 +15,37 @@ const SignInUp = () => {
   const [message, setMessage] = useState("");
   // const [provider, setProvider] = useState()
   const navigate = useNavigate();
-  // Google Response 
+  // Google Response
   const googleSuccessResponse = (response) => {
     console.log(process.env);
 
-    console.log(response);
-  }
+    console.log(response.profileObj.name);
+    axios
+      .post(`https://speaker-server-4zojz.ondigitalocean.app/api/auth/login`, {
+        name: response.profileObj.name,
+        phone: null,
+        email: response.profileObj.email,
+        provider: "GOOGLE",
+        isSubscribed: false,
+      })
+      .then((data) => {
+        console.log("Success", data?.data);
+        localStorage.setItem("@token", JSON.stringify(data?.data));
+        if (data?.data?.userdata?.role === "MODERATOR") {
+          navigate("/myprofile", { replace: true });
+        }
+        // if (data?.data?.isSubscribed) {
+        else navigate("/events", { replace: true });
+        // }
+      })
+      .catch((err) => {
+        console.log("Error", err);
+      });
+  };
   const googleFailureResponse = (response) => {
     console.log(process.env);
     console.log(response);
-  }
+  };
 
   const handleSubmit = (e, provide) => {
     console.log("API working");
@@ -34,29 +55,33 @@ const SignInUp = () => {
     e.preventDefault();
     if (provide) {
       axios
-        .post(`https://speaker-server-4zojz.ondigitalocean.app/api/auth/login`, {
-          name: name,
-          phone: phone,
-          email: email,
-          provider: provide,
-          isSubscribed: false,
-        })
+        .post(
+          `https://speaker-server-4zojz.ondigitalocean.app/api/auth/login`,
+          {
+            name: name,
+            phone: phone,
+            email: email,
+            provider: provide,
+            isSubscribed: false,
+          }
+        )
         .then((data) => {
           console.log("Success", data?.data);
           localStorage.setItem("@token", JSON.stringify(data?.data));
-          if (data?.data?.userdata?.role == "MODERATOR") {
+          if (data?.data?.userdata?.role === "MODERATOR") {
             navigate("/myprofile", { replace: true });
           }
           // if (data?.data?.isSubscribed) {
           else navigate("/events", { replace: true });
-          // } 
+          // }
         })
         .catch((err) => {
           console.log("Error", err);
         });
     }
   };
-  const clientId1="886137909534-jf2qdlp4o1b83p100ev2msaa83dsn1nl.apps.googleusercontent.com";
+  const clientId1 =
+    "886137909534-jf2qdlp4o1b83p100ev2msaa83dsn1nl.apps.googleusercontent.com";
 
   return (
     <div className="mp-parent" style={{ background: "none", marginTop: "0" }}>
@@ -67,9 +92,7 @@ const SignInUp = () => {
               <p onClick={() => setTabs(1)}>Become a member now!</p>
             </div>
             <div className={tabs == 0 ? "mpl-heading " : ""}>
-              <p onClick={() => setTabs(0)}>
-                Already a memeber? SIGN IN
-              </p>
+              <p onClick={() => setTabs(0)}>Already a memeber? SIGN IN</p>
             </div>
           </div>
 
@@ -119,10 +142,10 @@ const SignInUp = () => {
                   buttonText="Sign In With Google"
                   onSuccess={googleSuccessResponse}
                   onFailure={googleFailureResponse}
-                  cookiePolicy='single_host_origin'
+                  cookiePolicy="single_host_origin"
                   scope="profile email"
                 />
-                
+
                 <h3
                   style={{
                     color: "grey",
@@ -136,7 +159,7 @@ const SignInUp = () => {
                   style={{ width: "fit-content" }}
                   onClick={(e) => handleSubmit(e, "FACEBOOK")}
                 >
-                  SIGN - UP WITH FACEBOOK
+                  SIGN IN
                 </div>
               </div>
             </form>
@@ -174,12 +197,14 @@ const SignInUp = () => {
                 />
               </div>
               <div className="siubtn-parent">
-                <div
-                  className="eprbtn2 siubtn1"
-                  onClick={(e) => handleSubmit(e, "GOOGLE")}
-                >
-                  SIGN - UP WITH GOOGLE
-                </div>
+                <GoogleLogin
+                  clientId={clientId1}
+                  buttonText="Sign Up With Google"
+                  onSuccess={googleSuccessResponse}
+                  onFailure={googleFailureResponse}
+                  cookiePolicy="single_host_origin"
+                  scope="profile email"
+                />
                 <h3
                   style={{
                     color: "grey",
@@ -193,7 +218,7 @@ const SignInUp = () => {
                   style={{ width: "fit-content" }}
                   onClick={(e) => handleSubmit(e, "FACEBOOK")}
                 >
-                  SIGN - UP WITH FACEBOOK
+                  SIGN UP
                 </div>
               </div>
             </form>
@@ -205,7 +230,7 @@ const SignInUp = () => {
           </p>
         </div>
       </div>
-      <LoggedInSidebar />
+      {/* <LoggedInSidebar /> */}
     </div>
   );
 };
