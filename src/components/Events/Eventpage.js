@@ -95,7 +95,7 @@ const Eventpage = () => {
   useEffect(() => {
     if (
       userToken?.userdata?.role === "USER" ||
-      userToken?.userdata?.role == "MODERATOR"
+      userToken?.userdata?.role === "MODERATOR"
     ) {
       userEvents();
     }
@@ -403,11 +403,11 @@ const Eventpage = () => {
                     color: "#FFFFFF",
                   }}
                 >
-                  View Events
+                  POPULAR UPCOMING EVENTS
                 </Typography>
                 <Typography style={{ color: "#ffffff" }}>
-                  As a subscriber to SpeakerOre you can <br /> view unlimited
-                  details of the events.
+                  As a subscriber of SpeakerOre, you can browse through all the
+                  upcoming events and be a speaker in them too!.
                 </Typography>
                 <Button
                   onClick={handleOpen}

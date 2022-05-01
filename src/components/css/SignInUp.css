@@ -11,8 +11,19 @@
   border-radius: 10px;
 }
 .siul-child {
-  padding: 1rem;
 }
+.siul-child1 {
+  margin-left: 0%;
+}
+.siul-child1 p {
+  margin-top: 1%;
+  font-size: 14px;
+  text-align: left;
+}
+.siul-child2 {
+  text-align: left;
+}
+
 .siuinput-parent {
   margin: 2rem;
   padding: 0 2rem;
@@ -29,9 +40,9 @@
   border-bottom: 1px solid #000;
   outline: none;
 }
-.siubtn-parent{
-    margin-top: 4rem;
-    text-align: center;
+.siubtn-parent {
+  margin-top: 4rem;
+  text-align: center;
 }
 .siubtn1 {
   width: 40%;
@@ -40,10 +51,10 @@
   font-weight: 800;
   margin-bottom: 1rem;
 }
-.siu-left .siul-child:nth-child(1){
-    height: fit-content;
+.siu-left .siul-child:nth-child(1) {
+  height: fit-content;
 }
-.siu-left .siul-child:nth-child(2){
-    padding:5rem;
-    text-align: center;
+.siu-left .siul-child:nth-child(2) {
+  padding: 4rem;
+  text-align: left;
 }

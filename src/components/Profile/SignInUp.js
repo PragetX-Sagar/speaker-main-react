@@ -225,9 +225,41 @@ const SignInUp = () => {
           )}
         </div>
         <div className="siul-child">
-          <p>
-            COMPONENT TO SHOW THE PROCESS OF WHAT A USER CAN ONCE HE SIGNS IN.
-          </p>
+          <div className="siul-child1">
+            <div className="siul-child2">
+              <h4>4000+ Speaking Opportunities From Across The World</h4>
+              <p>
+                New leads to apply everyday! Focus on speaking, not lead
+                generation. Business growth opportunity - connect with the right
+                audience.
+              </p>
+            </div>
+            <br />
+            <div>
+              <h4>100+ SpeakerOre Exclusive Events</h4>
+              <p>
+                Reduces competition increasing the probability of being selected
+                as a speaker
+              </p>
+            </div>
+            <br />
+
+            <div>
+              <h4> Directly contact the event managers</h4>
+              <p>
+                No commissions, favouritism. Deal directly with the event
+                managers.
+              </p>
+            </div>
+            <br />
+
+            <div>
+              <h4> Saves your precious resources (Time, Money & Effort)</h4>
+              <p>
+                Easy, Efficient and Cost Effective. Saves Effort, Time and Money
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       {/* <LoggedInSidebar /> */}

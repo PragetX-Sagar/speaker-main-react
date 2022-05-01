@@ -33,11 +33,13 @@
   display: grid;
   grid-template-columns: 1fr 10fr;
   column-gap: 10px;
+  cursor: pointer;
 }
 .cdrow :hover {
   background: #eaf0f6;
-  background-clip: content-box,;
-  box-shadow: inset 1rem 0.8rem #ff7a59;
+  background-clip: content-box;
+  cursor: pointer;
+  /* box-shadow: inset 1rem 0.8rem #ff7a59; */
 }
 .mpl-heading {
   display: flex;
@@ -81,6 +83,42 @@
   padding: 1.5rem 0.5rem;
   width: 100%;
   margin-bottom: 1rem;
+}
+.mpes-from_to h6 {
+  width: 40%;
+  margin-left: 1%;
+  font-weight: 500;
+}
+.mpes-from_to {
+  display: flex;
+}
+.mpes-date1 {
+  display: flex;
+  justify-content: center;
+  width: 81%;
+}
+.mpes-contact1 > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mpes-contact1 input {
+  display: flex;
+  margin-bottom: 1%;
+  align-self: flex-end;
+  margin-right: 5%;
+}
+.mpes-contact1 {
+  margin-bottom: 2%;
+  width: 85%;
+}
+.mpes-contact1 h6 {
+  font-weight: 400;
+  margin-left: 2%;
+  font-size: 12px;
+}
+.mpes-date1 input {
+  margin: 1%;
 }
 .mpes-profilepic {
   margin: auto;
@@ -158,6 +196,23 @@
 }
 .confirmation .con-upper {
   display: flex;
+  align-items: center;
+}
+.conu-text {
+  display: flex;
+  align-items: center;
+}
+.conu-text1 {
+  display: flex;
+  align-items: center;
+}
+.conu-text button {
+  background: none;
+  border: none;
+}
+
+.conu-text1 :nth-child(2) {
+  margin-left: 1%;
 }
 .confirmation .con-upper .conu-text {
   margin-left: 1rem;

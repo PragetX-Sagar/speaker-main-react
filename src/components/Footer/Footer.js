@@ -1,6 +1,13 @@
 import React from "react";
 import "../css/footer.css";
-import { BsFacebook, BsInstagram, BsLinkedin, BsYoutube } from "react-icons/bs";
+import {
+  BsFacebook,
+  BsInstagram,
+  BsLinkedin,
+  BsYoutube,
+  BsTwitter,
+} from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -13,11 +20,17 @@ export default function Footer() {
           <li>Plans</li>
         </ul>
         <ul className="secondcolumn">
-          <li><a href="/terms">
-            Terms of Use</a></li>
-          <li><a href="/privacy">
-            Privacy Policy</a></li>
-          <li>FAQ</li>
+          <li>
+            <a href="/terms">Terms of Use</a>
+          </li>
+          <li>
+            <a href="/privacy">Privacy Policy</a>
+          </li>
+          {/* <Link to="/faq"> */}
+          <li>
+            <a href="/faq">FAQ</a>
+          </li>
+          {/* </Link> */}
           <li>Help</li>
         </ul>
         <ul className="thirdcolumn">
@@ -32,15 +45,28 @@ export default function Footer() {
             </button>
           </li>
 
-          <li >
-
-            Subscribing to SpeakerOre unlocks unlimited events.{" "}
-          </li>
+          <li>Subscribing to SpeakerOre unlocks unlimited events. </li>
           <li className="fc10">
-            <span><BsFacebook /></span>
-            <span><BsInstagram /></span>
-            <span><BsLinkedin /></span>
-            <span><BsYoutube /></span>
+            <span>
+              <a href="https://www.facebook.com/speakerore">
+                <BsFacebook />
+              </a>
+            </span>
+            <span>
+              <a href="https://www.instagram.com/speakerore/">
+                <BsInstagram />
+              </a>
+            </span>
+            <span>
+              <a href="https://www.linkedin.com/in/speakerore/">
+                <BsLinkedin />
+              </a>{" "}
+            </span>
+            <span>
+              <a href="https://twitter.com/speakerore">
+                <BsTwitter />
+              </a>
+            </span>
           </li>
           <li>Social Handles</li>
         </ul>

@@ -3,22 +3,34 @@ import "../css/addeventpage.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LoggedInSidebar from "../accountSide/LoggedInSidebar";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 export default function Addeventpage() {
   const [name, setName] = useState("");
   const [start_time, setstart_time] = useState("");
+  const [end_time, setend_time] = useState("");
   const [about, setabout] = useState("");
   const [location, setlocation] = useState("");
-  const [mode, setMode] = useState()
-  const [topic, setTopic] = useState()
-  const [AudienceType, setAudienceType] = useState()
-  const [paymentTerm, setpaymentTerm] = useState()
-  const [eventIncludes, seteventIncludes] = useState()
-  const [contact, setcontact] = useState()
-  const [sessionType, setsessionType] = useState()
-  const [tags, settags] = useState()
-  const [isExclusive, setisExclusive] = useState()
+  const [mode, setMode] = useState();
+  const [topic, setTopic] = useState();
+  const [eventSite, setEventSite] = useState();
+  const [AudienceType, setAudienceType] = useState();
+  const [AudienceSize, setAudienceSize] = useState();
+  const [paymentTerm, setpaymentTerm] = useState();
+  const [eventIncludes, seteventIncludes] = useState();
+  const [contact, setcontact] = useState("");
+  const [cname, setcname] = useState();
+  const [cemail, setcemail] = useState();
+  const [cphone, setcphone] = useState();
+  const [sessionType, setsessionType] = useState();
+  const [tags, settags] = useState();
+  const [isExclusive, setisExclusive] = useState();
 
+  // function WordCount(str) {
+  //   return str.split(" ").length;
+  // }
+
+  // console.log(WordCount("hello world"));
   const navigate = useNavigate();
   const handleEventCreate = (e) => {
     e.preventDefault();
@@ -28,12 +40,12 @@ export default function Addeventpage() {
       state: "Louisiana",
       country: location,
       start_time: start_time || "",
-      end_time: "2021-09-01T04:49:42.144Z",
+      end_time: end_time || "2025-09-01T04:49:42.144Z",
       email: "Colt36@hotmail.com",
       about: about,
       city: "Justinetown",
       postalCode: "56525",
-      website: '',
+      website: eventSite,
       mode: mode,
       topic: topic,
       location: location,
@@ -45,20 +57,20 @@ export default function Addeventpage() {
       tags: tags,
       description:
         "Praesentium omnis et dolore omnis dolores. Tempora non ut rem. Aut et beatae quisquam. Non eius nobis et eum porro qui facilis possimus ab.",
-      categories: [
-        "et",
-        "minus",
-        "dolorum",
-        "ipsa",
-      ],
+      categories: ["et", "minus", "dolorum", "ipsa"],
     };
     axios
-      .post(`${process.env.REACT_APP_URL}/events`, data, {
-        headers: {
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem("@token")).token
+      .post(
+        "https://speaker-server-4zojz.ondigitalocean.app/api/events",
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("@token")).token
             }`,
-        },
-      })
+          },
+        }
+      )
       .then((data) => {
         if (data?.data) {
           navigate("/events");
@@ -91,13 +103,26 @@ export default function Addeventpage() {
                         value={name}
                       />
                       <p>Date of the event</p>
-                      <input
-                        type="date"
-                        className="mpes-input"
-                        placeholder="Write Here"
-                        value={start_time}
-                        onChange={(e) => setstart_time(e.target.value)}
-                      />
+                      <div className="mpes-from_to">
+                        <h6>From</h6>
+                        <h6>To</h6>
+                      </div>
+                      <div className="mpes-date1">
+                        <input
+                          type="date"
+                          className="mpes-input"
+                          placeholder="Write Here"
+                          value={start_time}
+                          onChange={(e) => setstart_time(e.target.value)}
+                        />
+                        <input
+                          type="date"
+                          className="mpes-input"
+                          placeholder="Write Here"
+                          value={end_time}
+                          onChange={(e) => setend_time(e.target.value)}
+                        />
+                      </div>
                       <p>Mode</p>
                       <select
                         className="mpes-input"
@@ -109,11 +134,12 @@ export default function Addeventpage() {
                         onChange={(e) => setMode(e.target.value)}
                         value={mode}
                       >
-                        <option value="Online" selected>
+                        <option value="Virtual" selected>
                           Choose Mode
                         </option>
-                        <option value="Online">Online</option>
-                        <option value="Offline">Offline</option>
+                        <option value="In-person">In-person</option>
+                        <option value="Virtual">Virtual</option>
+                        <option value="Hybrid">Hybrid</option>
                       </select>
                       <p>Location</p>
                       <input
@@ -123,7 +149,7 @@ export default function Addeventpage() {
                         value={location}
                         onChange={(e) => setlocation(e.target.value)}
                       />
-                      <p>Topic covered</p>
+                      <p>Topics covered</p>
                       <input
                         type="text"
                         className="mpes-input"
@@ -131,15 +157,23 @@ export default function Addeventpage() {
                         onChange={(e) => setTopic(e.target.value)}
                         value={topic}
                       />
+                      <p>Event's Website</p>
+                      <input
+                        type="url"
+                        className="mpes-input"
+                        placeholder="Write Here"
+                        onChange={(e) => setEventSite(e.target.value)}
+                        value={eventSite}
+                      />
                       <p>Audience Size</p>
                       <input
                         type="text"
                         className="mpes-input"
                         placeholder="Write Here"
-                        onChange={(e) => setAudienceType(e.target.value)}
-                        value={AudienceType}
+                        onChange={(e) => setAudienceSize(e.target.value)}
+                        value={AudienceSize}
                       />
-                      <p>Payment Terms</p>
+                      <p>Engagement Terms </p>
                       <select
                         className="mpes-input"
                         style={{
@@ -151,14 +185,20 @@ export default function Addeventpage() {
                         value={paymentTerm}
                       >
                         {/* <option value="Online" selected>Choose Mode</option> */}
-                        <option value="Paid" selected>
+                        {/* <option value="Paid" selected>
                           Paid
+                        </option> */}
+                        <option value="Probono" selected>
+                          Probono
                         </option>
-                        <option value="Offline">Offline</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Open for Discussion">
+                          Open for Discussion
+                        </option>
                       </select>
                     </div>
                     <div className="mpes-form">
-                      <p>This event includes (in short):</p>
+                      <p>Event Description (100 words) </p>
                       <textarea
                         rows="4"
                         cols="46"
@@ -173,7 +213,7 @@ export default function Addeventpage() {
                         onChange={(e) => seteventIncludes(e.target.value)}
                         res
                       ></textarea>
-                      <p>About (elaborate)</p>
+                      <p>Detailed Event Description (500 words)</p>
                       <textarea
                         rows="5"
                         cols="46"
@@ -188,14 +228,47 @@ export default function Addeventpage() {
                         onChange={(e) => setabout(e.target.value)}
                       ></textarea>
                       <p>Contact Information:</p>
-                      <input
+                      {/* <input
                         type="number"
                         className="mpes-input"
                         placeholder="Write Here"
                         value={contact}
                         onChange={(e) => setcontact(e.target.value)}
-                      />
-                      <p>Session Type</p>
+                      /> */}
+                      <div className="mpes-contact1">
+                        <div className="mpes-cname">
+                          <h6>Name</h6>
+                          <input
+                            type="text"
+                            className="mpes-input"
+                            placeholder="Write Here"
+                            value={cname}
+                            onChange={(e) => setcname(e.target.value)}
+                          />
+                        </div>
+                        <div className="mpes-cemail">
+                          <h6>Email</h6>
+                          <input
+                            type="email"
+                            className="mpes-input"
+                            placeholder="Write Here"
+                            value={cemail}
+                            onChange={(e) => setcemail(e.target.value)}
+                          />
+                        </div>
+                        <div className="mpes-cphone">
+                          <h6>Phone</h6>
+                          <input
+                            type="number"
+                            className="mpes-input"
+                            placeholder="Write Here"
+                            value={cphone}
+                            onChange={(e) => setcphone(e.target.value)}
+                          />
+                        </div>
+                      </div>
+
+                      <p>Event Type</p>
                       <select
                         className="mpes-input"
                         style={{
@@ -206,22 +279,44 @@ export default function Addeventpage() {
                         value={sessionType}
                         onChange={(e) => setsessionType(e.target.value)}
                       >
-                        <option value="ChooseMode" >
-                          Choose Mode
+                        <option value="Conference">Conference</option>
+                        <option value="Summit">Summit</option>
+                        <option value="Employee Engagement Program">
+                          Employee Engagement Program
                         </option>
-                        <option value="Conference" >
-                          Conference
+                        <option value="Internal L&D event">
+                          Internal L&D event
                         </option>
-                        <option value="Offline">Offline</option>
+                        <option value="Online Video or Audio Interviews">
+                          Online Video or Audio Interviews
+                        </option>
+                        <option value="Others">Others</option>
                       </select>
                       <p>Audience Type</p>
-                      <input
-                        type="text"
+
+                      <select
                         className="mpes-input"
-                        placeholder="Write Here"
-                        value={AudienceType}
+                        style={{
+                          paddingTop: "0",
+                          paddingBottom: "0",
+                          color: "grey",
+                        }}
                         onChange={(e) => setAudienceType(e.target.value)}
-                      />
+                        value={AudienceType}
+                      >
+                        {/* <option value="Online" selected>Choose Mode</option> */}
+                        {/* <option value="Paid" selected>
+                          Paid
+                        </option> */}
+                        <option value="Employees" selected>
+                          Employees
+                        </option>
+                        <option value="Students">Students</option>
+                        <option value="Techies">Techies</option>
+                        <option value="Scientists">Scientists</option>
+                        <option value="HRs">HRs</option>
+                        <option value="Others">Others</option>
+                      </select>
                       <p>Tags</p>
                       <div className="tag-div">
                         <input
@@ -253,12 +348,22 @@ export default function Addeventpage() {
                         onChange={(e) => setisExclusive(e.target.value)}
                       />
                       <div className="conu-text">
-                        <h4>Apply for SpeakerOre Exclusive</h4>
-                        <span>
+                        <div className="conu-text1">
+                          <h4>Apply for SpeakerOre Exclusive</h4>
+                        </div>
+                        <button
+                          class="addMore"
+                          title="Events only for SpeakerOre subscribers. All the
+                          speaker in these events will be selected among
+                          speakers or members."
+                        >
+                          <InfoOutlinedIcon fontSize="small" />
+                        </button>
+                        {/* <span>
                           Events only for SpeakerOre subscribers. All the
                           speaker in these events will be selected among
                           speakers or members.
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                     <div className="con-lower">
@@ -288,7 +393,6 @@ export default function Addeventpage() {
           </div>
         </form>
         <LoggedInSidebar />
-       
       </div>
     </>
   );

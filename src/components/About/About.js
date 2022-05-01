@@ -13,8 +13,11 @@ export default function About() {
               <p className="num" style={{ textAlign: "center" }}>
                 01
               </p>
+              <h3>4000+ Speaking Opportunities From Across The World</h3>
               <p className="desc">
-                Filter out events according to your preference
+                New leads to apply everyday! Focus on speaking, not lead
+                generation. Business growth opportunity - connect with the right
+                audience.
               </p>
             </div>
 
@@ -29,9 +32,10 @@ export default function About() {
               <p className="num" style={{ textAlign: "center" }}>
                 02
               </p>
+              <h3>100+ SpeakerOre Exclusive Events</h3>
               <p className="desc">
-                Fill the speakerore exclusive events form and increase your
-                probabilty of being selected by the organizer.
+                Reduces competition increasing the probability of being selected
+                as a speaker
               </p>
             </div>
 
@@ -46,8 +50,27 @@ export default function About() {
               <p className="num" style={{ textAlign: "center" }}>
                 03
               </p>
+              <h3>Directly contact the event managers</h3>
               <p className="desc">
-                Filter out events according to your preference
+                No commissions, favouritism. Deal directly with the event
+                managers
+              </p>
+            </div>
+
+            <img
+              className="image"
+              src={require("../images/about.jpg")}
+              alt={""}
+            />
+          </div>
+          <div className="card">
+            <div className="fp-cardtext">
+              <p className="num" style={{ textAlign: "center" }}>
+                04
+              </p>
+              <h3>Saves your precious resources (Time, Money & Effort)</h3>
+              <p className="desc">
+                Easy, Efficient and Cost Effective. Saves Effort, Time and Money
               </p>
             </div>
 

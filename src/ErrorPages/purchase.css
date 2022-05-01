@@ -44,7 +44,7 @@ button {
 .main-purchase {
   text-align: center;
   margin-top: 3px;
-  box-shadow:0px 4px 8px rgb(171 171 171);
+  box-shadow: 0px 4px 8px rgb(171 171 171);
   border-radius: 15px;
   padding: 27px;
 }
@@ -52,7 +52,7 @@ button {
   width: 100%;
   background: rgba(52, 52, 52, 0.65);
 }
-.speaker{
+.speaker {
   position: relative;
 }
 .speaker .btn {
@@ -67,13 +67,13 @@ button {
   line-height: 14px;
   margin-bottom: 1rem;
 }
-.speaker .btn:hover{
+.speaker .btn:hover {
   font-size: medium;
   transition: ease-in-out 0.25s;
   box-shadow: 0 0 20px rgba(250, 250, 250, 0.85);
   padding: 0.8rem 1.5rem;
 }
-.fp-text{
+.fp-text {
   position: absolute;
   bottom: 3rem;
   width: 100%;
@@ -97,40 +97,39 @@ button {
   line-height: 21px;
   text-align: center;
 }
-.fp-addevent{
+.fp-addevent {
   padding: 2rem 3rem;
   position: relative;
 }
-.fp-addevent .desc{
+.fp-addevent .desc {
   text-transform: none;
   color: grey;
   margin-bottom: 0;
 }
-.fpae-heading{
+.fpae-heading {
   font-size: 4rem;
   font-weight: 100;
   color: rgba(154, 150, 150, 1);
-
 }
-.fp-addevent .fp-text{
+.fp-addevent .fp-text {
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   background: rgba(52, 52, 52, 0.65);
-  padding:30% 0;
+  padding: 30% 0;
   text-align: center;
 }
-.fp-addevent .fpae-imgtext{
-  font-size: 7rem;
+.fp-addevent .fpae-imgtext {
+  font-size: 5rem;
   color: #fff;
   margin-bottom: 1rem;
 }
-.fp-addevent .fp-text .two{
+.fp-addevent .fp-text .two {
   margin-bottom: 1rem;
 }
-.box-count{
+.box-count {
   position: absolute;
-  top:2px;
-  left:4px;
+  top: 2px;
+  left: 4px;
 }
