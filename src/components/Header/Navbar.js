@@ -48,7 +48,7 @@ function Navbar( props  ) {
         <div>
           <ul className="nav-ul">
             <li>
-              {userdata?.role == "MODERATOR" ? (
+              {userdata?.role === "MODERATOR" ? (
                 <>
                     <a href="/mod-event">Events</a>
                 </>

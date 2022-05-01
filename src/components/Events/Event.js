@@ -10,7 +10,6 @@ export default function Event() {
           Become a member now, and create an event as a event manager or a
           speaker.
         </p>
-        <p className="subhead2">features</p>
         <img
           className="eventspic1"
           src={require("./images/MaskGroup.png")}
@@ -25,18 +24,18 @@ export default function Event() {
         </div>
       </div>
       <div className="eventshead2">
-        <p className="heading2">EVENT SECTION</p>
+        <p className="heading2">POPULAR UPCOMING EVENTS</p>
         <p className="subhead5">
           Subscribe to us and view unlimited number of events.
         </p>
-        <p className="subhead6">features</p>
+        {/* <p className="subhead6">features</p> */}
         <img
           className="eventspic"
           src={require("./images/EventsPage2.png")}
           alt={""}
         />
         <div className="subevent">
-          <p className="subhead7">VIEW EVENTS</p>
+          <p className="subhead7">POPULAR UPCOMING EVENTS</p>
           <p className="subhead8">
             As a subscriber to SpeakerOre you can view unlimited details of the
             events.
