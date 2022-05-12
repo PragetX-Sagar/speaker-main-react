@@ -32,6 +32,7 @@ import Exclusiveevent from "./components/Terms/Exclusiveevent";
 // import Test from "./components/Test";
 import Exevent from "./components/Events/Exevents";
 import Faq from "./components/FAQ/Faq";
+import { Task } from "@mui/icons-material";
 
 function PrivateRoute({ component: Component, ...rest }) {
   let auth = JSON.parse(localStorage.getItem("@token"))?.token;
@@ -100,9 +101,12 @@ const App = () => {
           <Route path="/exclusiveevent" element={<Exclusiveevent />} />
           <Route path="/exevent" element={<Exevent />} />
         </Routes>
+        
       </BrowserRouter>
       <Footer />
     </>
+
+  
   );
 };
 
