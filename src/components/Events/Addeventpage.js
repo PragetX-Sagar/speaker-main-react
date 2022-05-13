@@ -16,6 +16,7 @@ export default function Addeventpage() {
   const [eventSite, setEventSite] = useState();
   const [AudienceType, setAudienceType] = useState();
   const [AudienceSize, setAudienceSize] = useState();
+  const [Categories, setCategories] = useState();
   const [paymentTerm, setpaymentTerm] = useState();
   const [eventIncludes, seteventIncludes] = useState();
   const [contact, setcontact] = useState("");
@@ -173,6 +174,14 @@ export default function Addeventpage() {
                         onChange={(e) => setAudienceSize(e.target.value)}
                         value={AudienceSize}
                       />
+                       <p>Categories</p>
+                      <input
+                        type="text"
+                        className="mpes-input"
+                        placeholder="Write Here"
+                        onChange={(e) => setCategories(e.target.value)}
+                        value={Categories}
+                      />
                       <p>Engagement Terms </p>
                       <select
                         className="mpes-input"
@@ -197,6 +206,7 @@ export default function Addeventpage() {
                         </option>
                       </select>
                     </div>
+
                     <div className="mpes-form">
                       <p>Event Description (100 words) </p>
                       <textarea

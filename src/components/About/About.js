@@ -23,7 +23,7 @@ export default function About() {
 
             <img
               className="image"
-              src={require("../images/about.jpg")}
+              src={require("../images/4000+ Speaking.png")}
               alt={""}
             />
           </div>
@@ -41,7 +41,7 @@ export default function About() {
 
             <img
               className="image"
-              src={require("../images/about.jpg")}
+              src={require("../images/100+ SpeakerOre.png")}
               alt={""}
             />
           </div>
@@ -59,7 +59,7 @@ export default function About() {
 
             <img
               className="image"
-              src={require("../images/about.jpg")}
+              src={require("../images/Directly contact.png")}
               alt={""}
             />
           </div>
@@ -76,7 +76,7 @@ export default function About() {
 
             <img
               className="image"
-              src={require("../images/about.jpg")}
+              src={require("../images/Saves your precious resources.png")}
               alt={""}
             />
           </div>

@@ -42,7 +42,7 @@ export default function Categories() {
               </p>
               <img
                 className="fpoc-img"
-                src={require("../images/category.jpg")}
+                src={require("../images/Speaker.png")}
                 alt={""}
               />
               <p className="fpoc-text">
@@ -50,16 +50,16 @@ export default function Categories() {
                 I am willing to look for events to get an opportunity to speak
                 in one of the greatest events.
               </p>
-              <button className="fpoc-btn"> checkout events</button>
+            <a href="/events"><button className="fpoc-btn"> View Events</button></a>
             </div>
             <div className="fpo-card">
-              <p className="fpoc-head">SPEAKER</p>
+              <p className="fpoc-head">EVENT MANAGER</p>
               <p className="fpoc-subhead">
                 Get nearby event detail by SpeakerOre
               </p>
               <img
                 className="fpoc-img"
-                src={require("../images/category.jpg")}
+                src={require("../images/Event Manager.png")}
                 alt={""}
               />
               <p className="fpoc-text">
@@ -67,7 +67,8 @@ export default function Categories() {
                 I am willing to look for events to get an opportunity to speak
                 in one of the greatest events.
               </p>
-              <button className="fpoc-btn"> checkout events</button>
+              <a href="/events"><button className="fpoc-btn" >Create Events</button></a>
+              
             </div>
           </div>
         </div>

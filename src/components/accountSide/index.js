@@ -11,6 +11,8 @@ export default function Index() {
   const [name, setname] = useState();
   const [phone, setphone] = useState();
   const [email, setemail] = useState();
+  const [age, setage] = useState();
+  const [occupation, setoccupation] = useState();
   const userToken = JSON.parse(localStorage.getItem("@token"));
   console.log(userToken, "userToken");
   const { userdata } = JSON.parse(localStorage.getItem("@token"));
@@ -43,12 +45,14 @@ export default function Index() {
       isSubscribed: true,
       email: userdata.email || email,
       name: userdata.name || name,
+      occupation: userdata.occupation || occupation,
+      age: userdata.age || age,
       provider: "GOOGLE",
       role: userdata.role,
     };
     axios
       .put(
-        `http://localhost:3000/api/auth/update/${userToken?.userdata?.id}`,
+        `${process.env.REACT_APP_URL}/auth/update/${userToken?.userdata?.id}`,
         data,
         {
           headers: {
@@ -168,7 +172,7 @@ export default function Index() {
                   type="text"
                   className="mpes-input"
                   placeholder="Write Here"
-                  value={userdata?.phone || phone}
+                  defaultValue={userdata?.phone || phone}
                   onChange={(e) => setphone(e.target.value)}
                 />
                 <p>Email</p>
@@ -176,7 +180,7 @@ export default function Index() {
                   type="text"
                   className="mpes-input"
                   placeholder="Write Here"
-                  value={userdata?.email || email}
+                  defaultValue={userdata?.email || email}
                   onChange={(e) => setemail(e.target.value)}
                 />
                 <p>Age</p>
@@ -184,6 +188,8 @@ export default function Index() {
                   type="text"
                   className="mpes-input"
                   placeholder="Write Here"
+                  value={userdata?.age || age || "qwerty"}
+                  onChange={(e) => setage(e.target.value)}
                 />
                 {/* <p>Phone Number</p>
                 <input
@@ -197,6 +203,8 @@ export default function Index() {
                   type="text"
                   className="mpes-input"
                   placeholder="Write Here"
+                  value={userdata?.occupation || occupation || "qwerty"}
+                  onChange={(e) => setoccupation(e.target.value)}
                 />
                 <button className="con-lower-btn eprbtn1" onClick={handleEdit}>
                   Update User

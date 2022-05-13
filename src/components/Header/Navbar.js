@@ -7,7 +7,6 @@ import Modal from "@mui/material/Modal";
 import withRouter from "../withRouter";
 
 function Navbar( props  ) {
-  
   console.log( props )
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);

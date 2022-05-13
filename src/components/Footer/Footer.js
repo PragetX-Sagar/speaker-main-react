@@ -14,10 +14,18 @@ export default function Footer() {
     <>
       <div className="footer">
         <ul className="firstcolumn">
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Events</li>
-          <li>Plans</li>
+          <li>
+            <a href="/about">About Us</a>
+            </li>
+          <li>
+            <a href="/contact">Contact Us</a>
+            </li>
+          <li>
+            <a href="/events">Events</a>
+            </li>
+          <li>
+            <a href="/subplan">Plans</a>
+            </li>
         </ul>
         <ul className="secondcolumn">
           <li>
@@ -48,22 +56,22 @@ export default function Footer() {
           <li>Subscribing to SpeakerOre unlocks unlimited events. </li>
           <li className="fc10">
             <span>
-              <a href="https://www.facebook.com/speakerore">
+              <a href="https://www.facebook.com/">
                 <BsFacebook />
               </a>
             </span>
             <span>
-              <a href="https://www.instagram.com/speakerore/">
+              <a href="https://www.instagram.com/">
                 <BsInstagram />
               </a>
             </span>
             <span>
-              <a href="https://www.linkedin.com/in/speakerore/">
+              <a href="https://www.linkedin.com/">
                 <BsLinkedin />
               </a>{" "}
             </span>
             <span>
-              <a href="https://twitter.com/speakerore">
+              <a href="https://twitter.com/">
                 <BsTwitter />
               </a>
             </span>

@@ -331,6 +331,14 @@ export default function SingleEventPageExclusive() {
                     >
                       Add Event
                     </button>
+                    <button
+                      className="con-lower-btn eprbtn1"
+                      style={{
+                        margin: "1rem",
+                      }}
+                    >
+                      Apply For The Event
+                    </button>
                   </div>
                 </div>
               </form>
