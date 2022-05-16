@@ -41,15 +41,16 @@ export default function Index() {
   const [plandta, setplandata] = useState("");
   const handleEdit = () => {
     const data = {
-      phone: userdata.phone || phone,
+      phone: phone || userdata.phone ,
       isSubscribed: true,
-      email: userdata.email || email,
-      name: userdata.name || name,
-      occupation: userdata.occupation || occupation,
-      age: userdata.age || age,
+      email: email || userdata.email,
+      name:  name || userdata.name ,
+      occupation: occupation  || userdata.occupation ,
+      age: age || userdata.age ,
       provider: "GOOGLE",
       role: userdata.role,
     };
+    console.log(data);
     axios
       .put(
         `${process.env.REACT_APP_URL}/auth/update/${userToken?.userdata?.id}`,
@@ -164,7 +165,7 @@ export default function Index() {
                   type="text"
                   className="mpes-input"
                   placeholder="Write Here"
-                  value={userdata?.name || name}
+                  defaultValue={userdata?.name || name}
                   onChange={(e) => setname(e.target.value)}
                 />
                 <p>Phone Number</p>
@@ -188,7 +189,7 @@ export default function Index() {
                   type="text"
                   className="mpes-input"
                   placeholder="Write Here"
-                  value={userdata?.age || age || "qwerty"}
+                  defaultValue={userdata?.age }
                   onChange={(e) => setage(e.target.value)}
                 />
                 {/* <p>Phone Number</p>
@@ -203,7 +204,7 @@ export default function Index() {
                   type="text"
                   className="mpes-input"
                   placeholder="Write Here"
-                  value={userdata?.occupation || occupation || "qwerty"}
+                  defaultValue={userdata?.occupation }
                   onChange={(e) => setoccupation(e.target.value)}
                 />
                 <button className="con-lower-btn eprbtn1" onClick={handleEdit}>
