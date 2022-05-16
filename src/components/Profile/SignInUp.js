@@ -63,6 +63,8 @@ const SignInUp = () => {
             email: email,
             provider: provide,
             isSubscribed: false,
+            occupation : "",
+            age: ""
           }
         )
         .then((data) => {
